@@ -23,4 +23,11 @@ data <- tbl_df(read.table("household_power_consumption.txt",sep = ";",header = 1
 # filter by dates "2007-02-01" to "2007-02-02"
 newdata <- data %>%
     mutate(Date=dmy(Date)) %>%
+    mutate(Global_active_power=as.numeric(Global_active_power)) %>%
     filter(Date >= ymd("2007-02-01") & Date <= ymd("2007-02-02"))
+
+#Plot Global Active Power
+
+hist(newdata$Global_active_power,col="red",xlab = "Global Active Power (kilowatts)",main = "Global Active Power")
+dev.copy(png,'Plot1.png',width = 480, height = 480)
+dev.off()

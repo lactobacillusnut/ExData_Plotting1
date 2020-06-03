@@ -33,3 +33,6 @@ plot(newdata$DateTime,newdata$Global_active_power,
      ylab = "Global Active Power (kilowatts)",
      xlab = "")
 
+#Export to PNG
+dev.copy(png,'Plot2.png',width = 480, height = 480)
+dev.off()
